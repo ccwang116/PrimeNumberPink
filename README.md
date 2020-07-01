@@ -1,2 +1,2 @@
-# PrimeNumberPink.github.io
+# PrimeNumberPink
  
