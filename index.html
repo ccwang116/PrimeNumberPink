@@ -168,6 +168,8 @@
         <br />提示:可先於excel中貼上再複製過來，以避免未預期的換行
       </span>
       <button onclick="calculate()">Calculate</button>
+      <p>加總為:</p>
+      <p id="answer"></p>
     </div>
     <header class="container flex-column">
       <h1>PRIME</h1>
@@ -218,6 +220,9 @@
       function SumDatareduce(arr) {
         return arr.reduce((a, b) => a + b);
       }
+      function printToAnswer(answer) {
+        document.getElementById("answer").innerHTML = answer;
+      }
       function calculate() {
         const countElement = document.getElementById("count");
         const input = countElement.value;
@@ -228,12 +233,12 @@
           let numArray = stringArray.map((x) => parseInt(x));
           console.log("numArray", numArray);
           if (isNaN(SumDatareduce(numArray))) {
-            alert("格式錯誤");
+            printToAnswer("格式錯誤");
           } else {
-            alert(SumDatareduce(numArray));
+            printToAnswer(SumDatareduce(numArray));
           }
         } else {
-          alert("Please input something!");
+          printToAnswer("Please input something!");
         }
       }
 
