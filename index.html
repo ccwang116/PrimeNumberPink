@@ -1,198 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>質數練習1-100_V2</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        @keyframes changeSmaller {
-            from {
-                transform: translateY(100px);
-            }
-
-            to {
-                transform: translateY(0);
-            }
-
+      @keyframes changeSmaller {
+        from {
+          transform: translateY(100px);
         }
 
-
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        to {
+          transform: translateY(0);
         }
+      }
 
-        :root {
-            --shaColor: rgb(170, 187, 255);
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        /* 模組化開始 */
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-        }
+      :root {
+        --shaColor: rgb(170, 187, 255);
+      }
 
-        .d-flex {
-            display: flex;
-        }
-        .flex-column {
-            display: flex;
-            flex-direction: column;
-        }
+      /* 模組化開始 */
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
 
+      .d-flex {
+        display: flex;
+      }
+      .flex-column {
+        display: flex;
+        flex-direction: column;
+      }
 
-        /* 模組化結束 */
-        header {
-            /* height: 300px; */
-            background-color: rgb(255, 217, 216);
-            align-items: center;
-        }
+      /* 模組化結束 */
+      header {
+        /* height: 300px; */
+        background-color: rgb(255, 217, 216);
+        align-items: center;
+      }
 
-        header h1 {
-            color: rgb(218, 78, 51);
-            font-size: 5vh;
-            line-height: 100px;
-            font-family: Arial Black;
-            letter-spacing: 15px;
-        }
+      header h1 {
+        color: rgb(218, 78, 51);
+        font-size: 5vh;
+        line-height: 100px;
+        font-family: Arial Black;
+        letter-spacing: 15px;
+      }
 
-        header p {
-            color: rgb(255, 125, 118);
-            font-size: 13vh;
-            line-height: 140px;
-            letter-spacing: 15px;
+      header p {
+        color: rgb(255, 125, 118);
+        font-size: 13vh;
+        line-height: 140px;
+        letter-spacing: 15px;
+      }
 
-        }
+      .numberarea {
+        width: 60%;
+        min-height: 20px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        background-color: rgb(255, 217, 216);
+        align-items: flex-start;
+        perspective: 800px;
+        perspective-origin: center;
+      }
 
-        .numberarea {
-            width: 60%;
-            min-height: 20px; 
-            margin: 0 auto;
-            flex-wrap: wrap;
-            background-color: rgb(255, 217, 216);
-            align-items: flex-start;
-            perspective: 800px;
-            perspective-origin: center;
-        }
+      main {
+        background-color: rgb(255, 217, 216);
+      }
 
-        main {
-            background-color: rgb(255, 217, 216);
-        }
+      .numbercard {
+        color: #fff;
+        /* background-color: rgb(255, 217, 216); */
+        text-shadow: 0px 0px 1px var(--shaColor), 1px 1px 1px var(--shaColor),
+          2px 2px 1px var(--shaColor), 3px 3px 1px var(--shaColor),
+          4px 4px 1px var(--shaColor), 5px 5px 1px var(--shaColor),
+          6px 6px 1px var(--shaColor), 7px 7px 1px var(--shaColor),
+          8px 8px 1px var(--shaColor), 9px 9px 1px var(--shaColor),
+          10px 10px 1px var(--shaColor), 11px 11px 1px var(--shaColor),
+          12px 12px 1px var(--shaColor), 13px 13px 1px var(--shaColor),
+          14px 14px 1px var(--shaColor), 15px 15px 1px var(--shaColor),
+          16px 16px 1px var(--shaColor), 17px 17px 1px var(--shaColor),
+          18px 18px 1px var(--shaColor), 19px 19px 1px var(--shaColor),
+          20px 20px 1px var(--shaColor);
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        font-size: 50px;
+        font-family: Arial Black, Helvetica, sans-serif;
+        overflow: hidden;
+        text-align: center;
+        line-height: 80px;
+        animation: changeSmaller 1s;
+      }
 
-        .numbercard {
-            color: #fff;
-            /* background-color: rgb(255, 217, 216); */
-            text-shadow: 0px 0px 1px var(--shaColor), 1px 1px 1px var(--shaColor), 2px 2px 1px var(--shaColor), 3px 3px 1px var(--shaColor), 4px 4px 1px var(--shaColor), 5px 5px 1px var(--shaColor), 6px 6px 1px var(--shaColor), 7px 7px 1px var(--shaColor), 8px 8px 1px var(--shaColor), 9px 9px 1px var(--shaColor), 10px 10px 1px var(--shaColor), 11px 11px 1px var(--shaColor), 12px 12px 1px var(--shaColor), 13px 13px 1px var(--shaColor), 14px 14px 1px var(--shaColor), 15px 15px 1px var(--shaColor), 16px 16px 1px var(--shaColor), 17px 17px 1px var(--shaColor), 18px 18px 1px var(--shaColor), 19px 19px 1px var(--shaColor), 20px 20px 1px var(--shaColor);
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
-            font-size: 50px;
-            font-family: Arial Black, Helvetica, sans-serif;
-            overflow: hidden;
-            text-align: center;
-            line-height: 80px;
-            animation: changeSmaller 1s;
-        }
+      aside {
+        background-color: rgb(255, 217, 216);
+        height: 150px;
+        /* overflow: hidden; */
+        /* animation: smooth 13s; */
+      }
 
-        aside {
+      aside .pbox {
+        width: 55%;
+        margin: 0 auto;
+        color: black;
+        font-size: 20px;
+        font-family: Arial;
+        text-align: center;
+        background-color: var(--shaColor);
+        transform: translateY(-5%);
+        height: 90%;
+        /* line-height: 75px; */
+        box-shadow: 0px 0px 1px var(--shaColor), 1px 1px 1px var(--shaColor),
+          2px 2px 1px var(--shaColor), 3px 3px 1px var(--shaColor),
+          4px 4px 1px var(--shaColor), 5px 5px 1px var(--shaColor),
+          6px 6px 1px var(--shaColor), 7px 7px 1px var(--shaColor),
+          8px 8px 1px var(--shaColor), 9px 9px 1px var(--shaColor),
+          10px 10px 1px var(--shaColor), 11px 11px 1px var(--shaColor),
+          12px 12px 1px var(--shaColor), 13px 13px 1px var(--shaColor),
+          14px 14px 1px var(--shaColor), 15px 15px 1px var(--shaColor),
+          16px 16px 1px var(--shaColor), 17px 17px 1px var(--shaColor),
+          18px 18px 1px var(--shaColor), 19px 19px 1px var(--shaColor),
+          20px 20px 1px var(--shaColor);
+      }
 
-            background-color: rgb(255, 217, 216);
-            height: 150px;
-            /* overflow: hidden; */
-            /* animation: smooth 13s; */
-        }
-
-        aside .pbox {
-            width: 55%;
-            margin: 0 auto;
-            color: black;
-            font-size: 20px;
-            font-family: Arial;
-            text-align: center;
-            background-color: var(--shaColor);
-            transform: translateY(-5%);
-            height: 90%;
-            /* line-height: 75px; */
-            box-shadow: 0px 0px 1px var(--shaColor), 1px 1px 1px var(--shaColor), 2px 2px 1px var(--shaColor), 3px 3px 1px var(--shaColor), 4px 4px 1px var(--shaColor), 5px 5px 1px var(--shaColor), 6px 6px 1px var(--shaColor), 7px 7px 1px var(--shaColor), 8px 8px 1px var(--shaColor), 9px 9px 1px var(--shaColor), 10px 10px 1px var(--shaColor), 11px 11px 1px var(--shaColor), 12px 12px 1px var(--shaColor), 13px 13px 1px var(--shaColor), 14px 14px 1px var(--shaColor), 15px 15px 1px var(--shaColor), 16px 16px 1px var(--shaColor), 17px 17px 1px var(--shaColor), 18px 18px 1px var(--shaColor), 19px 19px 1px var(--shaColor), 20px 20px 1px var(--shaColor);
-
-        }
-
-        .bbox {
-            width: 100%;
-            background-color: rgb(255, 217, 216);
-            height: auto;
-        }
-
-        button {
-            width: 75px;
-            height: 20px;
-            border: none;
-            border: 2px solid black;
-            margin: 0 auto;
-        }
+      .bbox {
+        width: 100%;
+        background-color: rgb(255, 217, 216);
+        height: auto;
+        align-items: center;
+      }
+      input {
+        width: 50%;
+        margin-bottom: 20px;
+      }
+      button {
+        width: 75px;
+        height: 20px;
+        border: none;
+        border: 2px solid black;
+        margin: 0 auto;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="container flex-column">
-        <h1>PRIME</h1>
-        <p>NUMBER</p>
-
+      <h1>Track Your Spending</h1>
     </header>
     <div class="bbox container flex-column">
-        <button onclick="showNum()">START</button>
+      <input type="text" name="count" value="" id="count" />
+      <span
+        >說明: 輸入要加總的正負數字，中間以空格分開，例如:1 3 5 -1。
+        最後不可以有空格。
+        <br />提示:可先於excel中貼上再複製過來，以避免未預期的換行
+      </span>
+      <button onclick="calculate()">Calculate</button>
     </div>
-    <main class="container ">
-        <div class="numberarea d-flex">
-            <!-- <div class="numbercard">
+    <header class="container flex-column">
+      <h1>PRIME</h1>
+      <p>NUMBER</p>
+    </header>
+    <div class="bbox container flex-column">
+      <button onclick="showNum()">START</button>
+    </div>
+    <main class="container">
+      <div class="numberarea d-flex">
+        <!-- <div class="numbercard">
                 23
             </div> -->
-        </div>
+      </div>
     </main>
     <aside class="container flex-column">
-        <div class="pbox">
-            <p> From one to one-hundred</p>
-        </div>
+      <div class="pbox">
+        <p>From one to one-hundred</p>
+      </div>
     </aside>
     <script>
+      let flag = false;
+      let arr = [];
+      for (let num = 2; num <= 100; num++) {
+        for (let i = 2; i < num; i++) {
+          if (num % i == 0) flag = true;
+        }
+        if (flag == false) {
+          arr.push(num);
+        } else {
+          flag = false;
+        }
+      }
+      // console.log(arr);
 
+      function showNum() {
+        for (let x = 0; x < arr.length; x++) {
+          setTimeout(function () {
+            var myNum = document.getElementsByClassName("numberarea")[0];
+            var newDiv = document.createElement("div");
+            newDiv.setAttribute("class", "numbercard");
+            var textNode = document.createTextNode(arr[x]);
+            newDiv.appendChild(textNode);
+            myNum.appendChild(newDiv);
+          }, (x + 1) * 500);
+        }
+      }
+      function SumDatareduce(arr) {
+        return arr.reduce((a, b) => a + b);
+      }
+      function calculate() {
+        const countElement = document.getElementById("count");
+        const input = countElement.value;
+        if (input.length > 0) {
+          //   console.log("input", input);
+          let Ninput = input.replace(/\n/g, "<br/>").replace(/\s/g, " ");
+          let stringArray = Ninput.split(" ");
+          let numArray = stringArray.map((x) => parseInt(x));
+          console.log("numArray", numArray);
+          if (isNaN(SumDatareduce(numArray))) {
+            alert("格式錯誤");
+          } else {
+            alert(SumDatareduce(numArray));
+          }
+        } else {
+          alert("Please input something!");
+        }
+      }
 
-        let flag = false;
-        let arr = [];
-        for (let num = 2; num <= 100; num++) {
-            for (let i = 2; i < num; i++) {
-                if (num % i == 0) flag = true;
-            }
-            if (flag == false) {
-                arr.push(num);
-            } else { flag = false; }
-        };
-        // console.log(arr);
-
-
-
-        function showNum() {
-            for (let x = 0; x < arr.length; x++) {
-                setTimeout(function () {
-                    var myNum = document.getElementsByClassName("numberarea")[0];
-                    var newDiv = document.createElement('div');
-                    newDiv.setAttribute("class", "numbercard");
-                    var textNode = document.createTextNode(arr[x]);
-                    newDiv.appendChild(textNode);
-                    myNum.appendChild(newDiv);
-                }, (x + 1) * 500);
-
-            };
-        };
-
-
-        // showNum();
-
+      // showNum();
     </script>
-</body>
-
+  </body>
 </html>
