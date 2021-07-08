@@ -197,7 +197,6 @@
       <input type="text" name="count" value="" id="count" />
       <span
         >說明: 輸入要加總的正負數字，中間以空格分開，例如:1 3 5 -1。
-        最後不可以有空格。
         <br />提示:可先於excel中貼上再複製過來，以避免未預期的換行
       </span>
       <button onclick="calculate()">Calculate</button>
@@ -261,7 +260,7 @@
         const input = countElement.value;
         if (input.length > 0) {
           //   console.log("input", input);
-          let Ninput = input.replace(/\n/g, "<br/>").replace(/\s/g, " ");
+          let Ninput = input.trim().replace(/\n/g, "<br/>").replace(/\s/g, " ");
           let stringArray = Ninput.split(" ");
           let numArray = stringArray.map((x) => parseInt(x));
           console.log("numArray", numArray);
